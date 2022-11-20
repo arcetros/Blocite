@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "format": "prettier --write \"./**/*.{ts,tsx}\"",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx,yml,yaml}\"",
+    "lint-fix": "eslint --fix \"**/*.{js,jsx,ts,tsx,yml,yaml}\""
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -22,10 +24,20 @@
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "eslint": "^8.28.0",
+    "eslint-config-kentcdodds": "^20.4.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,yml,yaml}": [
+      "eslint --cache --fix"
+    ],
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   }
 }
