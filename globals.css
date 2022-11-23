@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Monument Extended";
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts/MonumentExtended-Ultralight.woff);
+}
+
+@font-face {
+  font-family: "Monument Extended";
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts/MonumentExtended-Light.woff);
+}
+
+@font-face {
+  font-family: "Monument Extended";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/MonumentExtended-Regular.woff);
+}
+
+@font-face {
+  font-family: "Monument Extended";
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/MonumentExtended-Bold.woff);
+}
+
+@font-face {
+  font-family: "Monument Extended";
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts/MonumentExtended-Ultrabold.woff);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #f1f1f1;
+}
+
+body::after {
+  background-image: url(/images/background-tile.webp);
+  content: "";
+  position: fixed;
+  height: 300%;
+  width: 300%;
+  top: -100%;
+  left: -50%;
+  opacity: 0.5;
+  animation: grain 8s steps(10) infinite;
+  z-index: -2;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, 5%);
+  }
+  30% {
+    transform: translate(7%, -25%);
+  }
+  40% {
+    transform: translate(-5%, 25%);
+  }
+  50% {
+    transform: translate(-15%, 10%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(3%, 35%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
