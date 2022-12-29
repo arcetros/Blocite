@@ -12,6 +12,11 @@
   },
   "dependencies": {
     "@fontsource/montserrat": "^4.5.13",
+    "@tanstack/react-query": "^4.20.4",
+    "@trpc/client": "^10.7.0",
+    "@trpc/next": "^10.7.0",
+    "@trpc/react-query": "^10.7.0",
+    "@trpc/server": "^10.7.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
@@ -19,7 +24,8 @@
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.3"
+    "typescript": "4.9.3",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.43.0",

@@ -3,8 +3,12 @@ import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/700.css";
 import "../globals.css";
 
-import type { AppProps } from "next/app";
+import type { AppType } from "next/app";
 
-export default function App({ Component, pageProps }: AppProps) {
+import { trpc } from "../utils/trpc";
+
+const App: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
-}
+};
+
+export default trpc.withTRPC(App);
