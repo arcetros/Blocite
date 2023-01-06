@@ -25,6 +25,9 @@
   },
   "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
   "rules": {
+    "new-cap": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
   }
