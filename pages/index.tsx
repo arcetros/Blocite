@@ -1,8 +1,10 @@
 import { signIn, useSession } from "next-auth/react";
 import React from "react";
+import { SiDiscord } from "react-icons/si";
 
+import ButtonActions from "@/components/main-section/button-actions";
+import MainBanner from "@/components/main-section/logo";
 import Container from "@/components/ui/container";
-import MainBanner from "@/components/ui/logo";
 
 export default function Home() {
   const { data } = useSession();
@@ -12,12 +14,15 @@ export default function Home() {
         <MainBanner />
       </div>
       <div className="flex gap-x-2 px-4">
-        <button className="h-20 flex-1 rounded bg-[#202020] text-4xl font-bold text-[#5a5a5a]">
-          create
-        </button>
-        <button className="h-20 flex-1 rounded bg-[#5a5a5a] text-4xl font-bold text-[#202020]">
-          sign in
-        </button>
+        <ButtonActions label="create" type="MAIN" />
+        {data?.user ? (
+          <ButtonActions label="collections" type="SECONDARY" />
+        ) : (
+          <ButtonActions onClick={() => signIn("discord")} type="SECONDARY">
+            <SiDiscord className="h-10 w-10" />
+            sign in
+          </ButtonActions>
+        )}
       </div>
     </Container>
   );
