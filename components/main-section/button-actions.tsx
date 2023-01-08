@@ -26,7 +26,7 @@ const ButtonActions: React.FunctionComponent<Props> = ({
     },
   );
   return (
-    <button onClick={onClick} className={styles}>
+    <button disabled={isLoading} onClick={onClick} className={styles}>
       {isLoading ? (
         <LoadingDots />
       ) : (
