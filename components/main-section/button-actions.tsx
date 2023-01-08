@@ -1,11 +1,14 @@
 import clsx from "clsx";
 import React from "react";
 
+import LoadingDots from "../ui/loading-dots/loading-dots";
+
 interface Props {
   type: "MAIN" | "SECONDARY";
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
   label?: string;
   children?: React.ReactNode;
+  isLoading: boolean;
 }
 
 const ButtonActions: React.FunctionComponent<Props> = ({
@@ -13,6 +16,7 @@ const ButtonActions: React.FunctionComponent<Props> = ({
   onClick,
   label,
   children,
+  isLoading,
 }) => {
   const styles = clsx(
     "h-20 flex-1 flex rounded text-4xl font-bold items-center justify-center gap-x-4",
@@ -23,8 +27,14 @@ const ButtonActions: React.FunctionComponent<Props> = ({
   );
   return (
     <button onClick={onClick} className={styles}>
-      {children}
-      {label}
+      {isLoading ? (
+        <LoadingDots />
+      ) : (
+        <React.Fragment>
+          {children}
+          <span>{label}</span>
+        </React.Fragment>
+      )}
     </button>
   );
 };
