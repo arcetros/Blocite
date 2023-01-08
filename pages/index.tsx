@@ -7,7 +7,11 @@ import MainBanner from "@/components/main-section/logo";
 import Container from "@/components/ui/container";
 
 export default function Home() {
-  const { data } = useSession();
+  const session = useSession();
+
+  const isAuthenticated = session.status === "authenticated";
+  const isLoading = session.status === "loading";
+
   return (
     <Container el="section">
       <div className="relative m-auto my-8 h-full max-h-full bg-center px-4">
@@ -15,7 +19,7 @@ export default function Home() {
       </div>
       <div className="flex gap-x-2 px-4">
         <ButtonActions label="create" type="MAIN" />
-        {data?.user ? (
+        {isAuthenticated ? (
           <ButtonActions label="collections" type="SECONDARY" />
         ) : (
           <ButtonActions onClick={() => signIn("discord")} type="SECONDARY">
